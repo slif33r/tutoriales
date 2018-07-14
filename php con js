@@ -1,0 +1,63 @@
+<?php
+class html
+{
+   public function head($titulo,$javascript){
+     echo "<html><head>";
+     echo"<title>$titulo</title>";
+     echo $javascript;
+     
+     
+     echo"</head>";
+     
+   }
+  public function abrirBody(){
+     echo "<body>";
+   }
+  public function cerrarBody(){
+    echo "</body>";
+  }
+  public function pie(){ 
+    echo"</html>";
+   }
+  
+}
+
+class MiClase
+{
+  private $nombre="";
+  public function __construct()
+  {
+    echo"Se creo el objeto";
+  }
+  public function cambiarPropiedad($nuevo){
+    $this->nombre= $nuevo;
+  }
+  public function mostrar(){
+    echo $this->nombre;
+  }
+}
+//Fin de Clases
+$js='<script type="text/javascript">
+alert("Hola desde js");</script>';
+$objetohtml=new html();
+$objetohtml->head("PAGINA RICARDO",$js);
+$objetohtml->abrirBody();
+
+
+$miObjeto1=new MiClase();
+$miObjeto1->mostrar();
+$miObjeto1->cambiarPropiedad(" objeto1 <br>");
+$miObjeto1->mostrar();
+
+$miObjeto2=new MiClase();
+$miObjeto2->mostrar();
+$miObjeto2->cambiarPropiedad(" objeto2 <br>");
+$miObjeto2->mostrar();
+
+
+$miObjeto3=new MiClase();
+$miObjeto3->mostrar();
+$miObjeto3->cambiarPropiedad(" objeto3 <br>");
+$miObjeto3->mostrar();
+$objetohtml->cerrarBody();
+$objetohtml->pie();
